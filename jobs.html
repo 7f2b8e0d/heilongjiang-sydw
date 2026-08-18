@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>选择岗位 - 黑龙江省事业单位公开招聘服务平台</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img class="banner" src="assets/head_back.png" alt="" />
+      <div class="nav-wrap">
+        <nav class="nav">
+          <a href="index.html">首页</a>
+          <a href="#">招聘信息</a>
+          <a href="#">过程信息</a>
+          <a href="#">结果信息</a>
+          <a href="#">政策规定</a>
+          <a href="#">常用下载</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="date" id="today"></div>
+      <div class="steps">
+        <span class="on">1. 考生登录</span>
+        <span class="on">2. 上传照片</span>
+        <span class="on">3. 选择岗位</span>
+        <span>4. 报名成功</span>
+      </div>
+      <section class="panel">
+        <h1>选择报考职位</h1>
+        <p class="photo-tip" style="margin-bottom:12px">按原站规则：先选择职位所属地市（考区），再在岗位计划中勾选一个职位保存。笔试在职位所属地区参加，省直考区设在哈尔滨市。</p>
+        <div class="filter-bar">
+          <label>所属地市</label>
+          <select id="city"></select>
+          <label>考试类别</label>
+          <select id="cate">
+            <option value="">全部</option>
+            <option>综合管理类</option>
+            <option>教育类</option>
+            <option>卫生类</option>
+            <option>农业农村类</option>
+          </select>
+          <input id="kw" type="text" placeholder="岗位名称 / 单位 / 岗位代码" style="width:240px" />
+          <button class="btn" type="button" id="searchBtn">查询</button>
+        </div>
+        <div class="table-scroll">
+          <table class="job-table">
+            <thead>
+              <tr>
+                <th>选择</th>
+                <th>岗位代码</th>
+                <th>所属地市</th>
+                <th>用人单位</th>
+                <th>岗位名称</th>
+                <th>人数</th>
+                <th>学历</th>
+                <th>专业</th>
+                <th>考试类别</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <div class="form-actions" style="padding-left:0;margin-top:18px">
+          <button class="btn" type="button" id="saveBtn">保存并报名</button>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">主办单位：黑龙江省人力资源和社会保障厅　建议采用chrome浏览器，1920*1080分辨率</footer>
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/jobs.js"></script>
+</body>
+</html>

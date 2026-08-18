@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>上传照片 - 黑龙江省事业单位公开招聘服务平台</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img class="banner" src="assets/head_back.png" alt="" />
+      <div class="nav-wrap">
+        <nav class="nav">
+          <a href="index.html">首页</a>
+          <a href="#">招聘信息</a>
+          <a href="#">过程信息</a>
+          <a href="#">结果信息</a>
+          <a href="#">政策规定</a>
+          <a href="#">常用下载</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="date" id="today"></div>
+      <div class="steps">
+        <span class="on">1. 考生登录</span>
+        <span class="on">2. 上传照片</span>
+        <span>3. 选择岗位</span>
+        <span>4. 报名成功</span>
+      </div>
+      <section class="panel">
+        <h1>上传报名照片</h1>
+        <div class="photo-area">
+          <div class="photo-preview" id="preview">待上传</div>
+          <div>
+            <p class="photo-tip">请上传近期免冠证件照，建议使用报名系统提供的照片审核处理工具处理后上传。支持 jpg / png，演示站点不做像素校验。</p>
+            <div class="form-row" style="padding-left:0">
+              <input id="file" type="file" accept="image/*" />
+            </div>
+            <div class="form-actions" style="padding-left:0">
+              <button class="btn" type="button" id="nextBtn">保存并选择岗位</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">主办单位：黑龙江省人力资源和社会保障厅　建议采用chrome浏览器，1920*1080分辨率</footer>
+  </div>
+  <script src="js/app.js"></script>
+  <script>
+    var preview = document.getElementById("preview");
+    var uploaded = false;
+    document.getElementById("file").addEventListener("change", function (e) {
+      var f = e.target.files && e.target.files[0];
+      if (!f) return;
+      var url = URL.createObjectURL(f);
+      preview.innerHTML = "";
+      var img = document.createElement("img");
+      img.src = url;
+      preview.appendChild(img);
+      uploaded = true;
+      sessionStorage.setItem("hasPhoto", "1");
+    });
+    document.getElementById("nextBtn").addEventListener("click", function () {
+      if (!uploaded) {
+        alert("请先上传照片");
+        return;
+      }
+      location.href = "jobs.html";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>报名成功 - 黑龙江省事业单位公开招聘服务平台</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img class="banner" src="assets/head_back.png" alt="" />
+      <div class="nav-wrap">
+        <nav class="nav">
+          <a href="index.html">首页</a>
+          <a href="#">招聘信息</a>
+          <a href="#">过程信息</a>
+          <a href="#">结果信息</a>
+          <a href="#">政策规定</a>
+          <a href="#">常用下载</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <div class="date" id="today"></div>
+      <div class="steps">
+        <span class="on">1. 考生登录</span>
+        <span class="on">2. 上传照片</span>
+        <span class="on">3. 选择岗位</span>
+        <span class="on">4. 报名成功</span>
+      </div>
+      <section class="panel ok-box">
+        <h1>报名成功</h1>
+        <p>您已完成岗位选择。请牢记岗位代码，按公告时间参加笔试。</p>
+        <div class="ok-detail" id="detail"></div>
+        <p><a class="btn" href="index.html">返回首页</a></p>
+      </section>
+    </main>
+    <footer class="footer">主办单位：黑龙江省人力资源和社会保障厅　建议采用chrome浏览器，1920*1080分辨率</footer>
+  </div>
+  <script src="js/app.js"></script>
+  <script>
+    var job = {};
+    try { job = JSON.parse(sessionStorage.getItem("selectedJob") || "{}"); } catch (e) {}
+    var id = sessionStorage.getItem("userId") || "";
+    document.getElementById("detail").innerHTML =
+      "<div>身份证号：" + id + "</div>" +
+      "<div>岗位代码：" + (job.code || "-") + "</div>" +
+      "<div>所属地市：" + (job.city || "-") + "</div>" +
+      "<div>用人单位：" + (job.unit || "-") + "</div>" +
+      "<div>岗位名称：" + (job.name || "-") + "</div>" +
+      "<div>考试类别：" + (job.cate || "-") + "</div>" +
+      "<div>笔试地点：职位所属地区（省直考区在哈尔滨市）</div>";
+  </script>
+</body>
+</html>
