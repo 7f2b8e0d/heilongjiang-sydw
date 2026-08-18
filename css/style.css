@@ -19,10 +19,14 @@ button { font-family: inherit; }
   object-position: center top;
 }
 .nav-wrap {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
   display: flex;
   justify-content: center;
+  background: #b11a1a;
+  padding: 12px 0 4px;
 }
 .nav {
   width: 1140px;
@@ -277,6 +281,7 @@ button { font-family: inherit; }
   .nav-wrap {
     position: static;
     background: #b11a1a;
+    padding: 8px 0 0;
   }
   .nav {
     width: 100%;
